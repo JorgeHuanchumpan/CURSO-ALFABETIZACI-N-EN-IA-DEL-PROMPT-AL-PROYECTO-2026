@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1769aa">
+<title>Portal Digital | Actividades, Objetivos y Alfabetización en IA</title>
+<style>
+:root{--blue:#1769aa;--blue2:#2588ce;--sky:#eaf5fc;--ink:#1e293b;--muted:#64748b;--line:#e5edf4;--bg:#f5f8fb;--white:#fff;--green:#15966a;--amber:#d97706;--red:#dc5454;--shadow:0 8px 26px rgba(28,65,99,.07);--radius:16px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:252px;background:#fff;border-right:1px solid var(--line);padding:24px 16px;display:flex;flex-direction:column;z-index:20}.brand{display:flex;align-items:center;gap:11px;padding:0 9px 27px}.brandmark{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#2588ce,#12558e);display:grid;place-items:center;color:#fff;font-size:21px;box-shadow:0 6px 15px #1769aa33}.brand strong{display:block;font-size:14px;letter-spacing:-.2px}.brand small{color:var(--muted);font-size:11px}.nav-label{padding:10px 12px 7px;color:#94a3b8;font-size:10px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;text-align:left;color:#64748b;padding:11px 13px;border-radius:11px;display:flex;align-items:center;gap:12px;font-weight:600}.nav button .ico{width:20px;text-align:center;font-size:17px}.nav button:hover{background:#f3f8fc;color:var(--blue)}.nav button.active{background:var(--sky);color:var(--blue);font-weight:750}.side-bottom{margin-top:auto;padding:14px 10px 0;border-top:1px solid var(--line);color:var(--muted);font-size:11px}.side-bottom strong{color:var(--ink);display:block;font-size:12px;margin-bottom:3px}.main{margin-left:252px;min-height:100vh}.topbar{height:76px;background:#ffffffd9;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 34px;position:sticky;top:0;z-index:10}.crumb{color:var(--muted);font-size:12px}.crumb b{color:var(--ink)}.top-actions{display:flex;align-items:center;gap:12px}.avatar{width:35px;height:35px;border-radius:50%;background:#dceefa;color:#1769aa;display:grid;place-items:center;font-weight:800}.iconbtn{border:1px solid var(--line);background:#fff;border-radius:10px;width:37px;height:37px;color:#52657a}.content{padding:30px 34px 55px;max-width:1500px;margin:auto}.page{display:none}.page.active{display:block}.heading{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:24px}.heading h1{font-size:25px;letter-spacing:-.8px;margin:0 0 5px}.heading p{margin:0;color:var(--muted)}.btn{border:0;border-radius:10px;padding:10px 15px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.15s}.btn-primary{background:var(--blue);color:#fff;box-shadow:0 4px 10px #1769aa25}.btn-primary:hover{background:#10588f;transform:translateY(-1px)}.btn-light{background:#fff;border:1px solid var(--line);color:#475569}.btn-light:hover{background:#f8fbfd}.btn-danger{background:#fff0f0;color:#c43d3d;border:1px solid #f9dada}.btn-sm{padding:7px 10px;font-size:12px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:20px}.stat,.panel,.activity-card,.objective-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.stat{padding:19px 20px;display:flex;justify-content:space-between;align-items:center}.stat small{color:var(--muted);font-weight:600}.stat strong{display:block;font-size:27px;letter-spacing:-1px;margin-top:5px}.stat-icon{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;font-size:20px;background:var(--sky)}.stat:nth-child(2) .stat-icon{background:#eaf8f1}.stat:nth-child(3) .stat-icon{background:#fff5e6}.stat:nth-child(4) .stat-icon{background:#f2edff}.grid2{display:grid;grid-template-columns:1.35fr 1fr;gap:18px;margin-bottom:20px}.panel{padding:20px}.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.panel-head h3{font-size:15px;margin:0}.muted{color:var(--muted)}.small{font-size:12px}.activity-list{display:grid;gap:11px}.activity-row{display:flex;gap:13px;align-items:center;padding:11px 0;border-bottom:1px solid #f0f3f6}.activity-row:last-child{border:0}.datebox{width:47px;min-width:47px;height:50px;border-radius:11px;background:#edf6fc;color:var(--blue);display:grid;place-items:center;align-content:center}.datebox b{font-size:17px;line-height:1.1}.datebox span{font-size:9px;font-weight:800;text-transform:uppercase}.row-info{flex:1;min-width:0}.row-info strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.row-info small{color:var(--muted)}.pill{display:inline-flex;align-items:center;padding:4px 9px;border-radius:30px;font-size:10px;font-weight:750;background:#edf4fa;color:#45647e;white-space:nowrap}.pill.green{background:#e8f7ef;color:#138257}.pill.amber{background:#fff4df;color:#a76805}.pill.red{background:#ffeded;color:#bd4141}.progress-wrap{display:grid;gap:13px}.progress-item{display:grid;gap:6px}.progress-label{display:flex;justify-content:space-between;font-size:12px}.progress-label span:last-child{font-weight:800;color:var(--blue)}.track{height:7px;background:#edf2f6;border-radius:20px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#2588ce,#56b4df);border-radius:20px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:17px}.search{position:relative;flex:1;min-width:200px}.search input{padding-left:36px}.search span{position:absolute;left:12px;top:9px;color:#94a3b8}.field, input,select,textarea{width:100%;border:1px solid #dce5ed;border-radius:9px;padding:10px 11px;background:#fff;color:var(--ink);outline:none}.field:focus,input:focus,select:focus,textarea:focus{border-color:#65a9d8;box-shadow:0 0 0 3px #2588ce18}label{display:block;font-size:12px;font-weight:700;color:#475569;margin:0 0 6px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-group.full{grid-column:1/-1}textarea{min-height:82px;resize:vertical}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.activity-card{overflow:hidden}.card-top{padding:17px 17px 12px;display:flex;justify-content:space-between;align-items:flex-start}.emoji{width:43px;height:43px;border-radius:13px;background:#eef6fc;display:grid;place-items:center;font-size:22px}.card-body{padding:0 17px 16px}.card-body h3{font-size:15px;margin:0 0 6px}.card-body p{color:var(--muted);font-size:12px;margin:0 0 13px;min-height:36px}.meta{display:grid;gap:7px;color:#607184;font-size:11px}.card-actions{padding:12px 17px;border-top:1px solid #eef2f5;display:flex;gap:7px}.card-actions button{flex:1}.objective-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.objective-card{padding:18px}.objective-card h3{margin:0 0 5px;font-size:15px}.objective-card p{margin:0 0 15px;color:var(--muted);font-size:12px}.objective-meta{display:flex;justify-content:space-between;align-items:center;margin:12px 0 7px;font-size:11px;color:var(--muted)}.table-wrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:14px}.data-table{width:100%;border-collapse:collapse;min-width:650px}.data-table th,.data-table td{text-align:left;padding:13px 15px;border-bottom:1px solid #eef2f5;font-size:12px}.data-table th{background:#f8fafc;color:#64748b;font-size:10px;text-transform:uppercase;letter-spacing:.6px}.data-table tr:last-child td{border:0}.empty{text-align:center;padding:36px 15px;color:#94a3b8}.empty b{display:block;color:#64748b;margin:7px}.calendar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}.cal-dayname{padding:10px;text-align:center;background:#f8fafc;color:#718096;font-size:10px;font-weight:800;text-transform:uppercase}.cal-cell{min-height:105px;padding:8px;border-top:1px solid var(--line);border-right:1px solid var(--line);font-size:11px}.cal-cell:nth-child(7n){border-right:0}.cal-cell.muted-day{background:#fafbfd;color:#b7c2cc}.cal-num{font-weight:750;margin-bottom:5px}.cal-event{background:#eaf5fc;color:#1769aa;border-radius:5px;padding:3px 5px;margin:3px 0;font-size:9px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.setting-actions{display:flex;gap:9px;flex-wrap:wrap}.modal-backdrop{position:fixed;inset:0;background:#10283d77;display:none;align-items:center;justify-content:center;padding:18px;z-index:50}.modal-backdrop.show{display:flex}.modal{background:#fff;border-radius:18px;width:min(650px,100%);max-height:90vh;overflow:auto;box-shadow:0 25px 80px #0b253d44}.modal-head{padding:20px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.modal-head h2{font-size:18px;margin:0}.modal-body{padding:20px 22px}.modal-foot{padding:15px 22px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:9px}.close{border:0;background:transparent;font-size:22px;color:#718096}.toast{position:fixed;right:22px;bottom:22px;background:#173c59;color:#fff;padding:12px 17px;border-radius:11px;box-shadow:var(--shadow);z-index:100;display:none}.toast.show{display:block;animation:fade .2s}@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}.qr-box{text-align:center;padding:15px}.qr-box img{width:190px;height:190px;max-width:100%;border:1px solid var(--line);padding:8px;border-radius:10px}.mobile-menu{display:none}
+
+.hero-banner{position:relative;min-height:205px;border-radius:18px;overflow:hidden;margin:-2px 0 22px;background:linear-gradient(110deg,#0d3457,#1769aa);box-shadow:var(--shadow);isolation:isolate}
+.hero-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%;z-index:-2}
+.hero-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,35,61,.94) 0%,rgba(8,45,78,.78) 43%,rgba(8,45,78,.12) 100%);z-index:-1}
+.hero-content{position:relative;z-index:1;max-width:590px;padding:25px 28px;color:#fff}
+.hero-kicker{font-size:10px;font-weight:800;letter-spacing:1.6px;color:#bfe7ff;margin-bottom:8px}
+.hero-content h2{font-size:24px;line-height:1.18;letter-spacing:-.6px;margin:0 0 8px;color:#fff}
+.hero-content p{font-size:13px;color:#e0edf7;margin:0 0 15px;max-width:480px}
+.hero-content .btn{background:#fff;color:#145b92}
+.hero-credit{position:absolute;right:11px;bottom:8px;color:#fff9;font-size:9px;text-shadow:0 1px 3px #000}
+.hero-credit a{color:inherit}
+@media(max-width:760px){.hero-banner{min-height:220px}.hero-banner:after{background:linear-gradient(90deg,rgba(8,35,61,.93),rgba(8,45,78,.58))}.hero-content{padding:22px 19px}.hero-content h2{font-size:21px}.hero-credit{right:9px;bottom:6px}}
+@media(max-width:1100px){.stats{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}
+
+.legal-banner{position:relative;min-height:220px;border-radius:18px;overflow:hidden;margin:-2px 0 22px;background:linear-gradient(110deg,#102f50,#1769aa);box-shadow:var(--shadow);isolation:isolate}
+.legal-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;z-index:-2}
+.legal-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,31,54,.93) 0%,rgba(8,45,78,.76) 48%,rgba(8,45,78,.18) 100%);z-index:-1}
+.legal-banner-content{position:relative;color:#fff;padding:30px 32px;max-width:650px}
+.legal-kicker{font-size:10px;font-weight:800;letter-spacing:1.5px;color:#c7e9ff;margin-bottom:8px}
+.legal-banner h2{font-size:27px;line-height:1.18;letter-spacing:-.6px;margin:0 0 9px}
+.legal-banner p{font-size:13px;color:#e3f2fb;margin:0;max-width:560px}
+.legal-banner-credit{position:absolute;right:12px;bottom:8px;color:#fff;font-size:9px;text-shadow:0 1px 4px #000}
+.legal-banner-credit a{color:#fff}
+.legal-intro{margin:0 0 16px;color:var(--muted)}
+.legal-table-wrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.legal-table{width:100%;border-collapse:collapse;min-width:720px}
+.legal-table th,.legal-table td{padding:15px 17px;text-align:left;vertical-align:top;border-bottom:1px solid #edf2f6}
+.legal-table th{background:#f2f8fc;color:#49647b;text-transform:uppercase;font-size:10px;letter-spacing:.7px}
+.legal-table td{font-size:12px;color:#526276}
+.legal-table td:first-child{width:190px;color:var(--ink);font-weight:750}
+.legal-table tr:last-child td{border-bottom:0}
+.legal-note{margin-top:16px;background:#fff8e9;border:1px solid #f3e2b9;border-radius:12px;padding:14px 16px;color:#79591e;font-size:12px}
+.legal-note strong{display:block;color:#674912;margin-bottom:4px}
+
+.project-banner{position:relative;min-height:275px;border-radius:18px;overflow:hidden;margin:-2px 0 20px;background:linear-gradient(110deg,#102f50,#1769aa);box-shadow:var(--shadow);isolation:isolate}
+.project-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%;z-index:-2}
+.project-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,29,51,.94) 0%,rgba(9,48,79,.78) 52%,rgba(9,48,79,.22) 100%);z-index:-1}
+.project-banner-content{position:relative;color:#fff;padding:34px 34px;max-width:760px}
+.project-kicker{font-size:10px;font-weight:800;letter-spacing:1.5px;color:#c7e9ff;margin-bottom:10px}
+.project-banner h2{font-size:29px;line-height:1.17;letter-spacing:-.7px;margin:0 0 12px}
+.project-banner p{font-size:13px;color:#e3f2fb;margin:0;max-width:650px}
+.project-banner-credit{position:absolute;right:12px;bottom:8px;color:#fff;font-size:9px;text-shadow:0 1px 4px #000}
+.project-banner-credit a{color:#fff}
+.project-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.project-meta-item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px;box-shadow:var(--shadow)}
+.project-meta-item span{display:block;color:var(--muted);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
+.project-meta-item strong{font-size:13px}
+.project-table-wrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.project-table{width:100%;border-collapse:collapse;min-width:780px}
+.project-table th,.project-table td{padding:15px 17px;text-align:left;vertical-align:top;border-bottom:1px solid #edf2f6}
+.project-table th{background:#f2f8fc;color:#49647b;text-transform:uppercase;font-size:10px;letter-spacing:.7px}
+.project-table td{font-size:12px;color:#526276}
+.project-table td:first-child{width:205px;color:var(--ink);font-weight:750}
+.project-table tr:last-child td{border-bottom:0}
+.project-summary{margin-top:16px;background:#edf7fd;border:1px solid #d8eefa;border-radius:13px;padding:16px 18px;color:#34566f}
+.project-summary strong{display:block;color:#174d76;margin-bottom:5px}
+.project-nav-label{font-size:12px;line-height:1.3;white-space:normal}
+@media(max-width:900px){.project-meta{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.project-banner{min-height:290px}.project-banner-content{padding:27px 21px}.project-banner h2{font-size:23px}.project-banner:after{background:linear-gradient(90deg,rgba(7,29,51,.95),rgba(9,48,79,.66))}.project-meta{grid-template-columns:1fr 1fr}}
+@media(max-width:430px){.project-meta{grid-template-columns:1fr}.project-banner{min-height:320px}}
+@media(max-width:760px){.legal-banner{min-height:230px}.legal-banner-content{padding:25px 20px}.legal-banner h2{font-size:23px}.legal-banner:after{background:linear-gradient(90deg,rgba(8,31,54,.94),rgba(8,45,78,.62))}}
+
+@media(max-width:760px){.sidebar{width:260px;transform:translateX(-100%);transition:.2s;box-shadow:var(--shadow)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}.topbar{height:65px;padding:0 17px}.mobile-menu{display:inline-grid}.content{padding:22px 16px 40px}.heading{align-items:flex-start;flex-direction:column}.stats{gap:10px}.stat{padding:14px}.stat strong{font-size:22px}.cards,.objective-grid,.settings-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.form-group.full{grid-column:auto}.calendar-grid{min-width:630px}.calendar-scroll{overflow:auto}.cal-cell{min-height:82px}.top-actions .user-label{display:none}}
+@media(max-width:430px){.stats{grid-template-columns:1fr 1fr}.stat-icon{display:none}.stat small{font-size:10px}.stat strong{font-size:21px}}
+
+.sidebar{overflow:hidden;isolation:isolate}
+.sidebar::before{content:"";position:absolute;inset:0;background-image:url("https://img.magnific.com/fotos-premium/interaccion-dedo-elementos-ia-interfaz-virtual_809804-103.jpg");background-size:cover;background-position:center bottom;opacity:.1;z-index:-1;pointer-events:none}
+
+
+.control-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}
+.control-kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);min-width:0}
+.control-kpi-label{font-size:10px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:var(--muted)}
+.control-kpi-value{font-size:26px;font-weight:800;letter-spacing:-.8px;color:var(--ink);margin-top:6px;font-variant-numeric:tabular-nums}
+.control-kpi-sub{font-size:10px;color:var(--muted);margin-top:3px}
+.control-kpi-icon{float:right;width:35px;height:35px;border-radius:11px;background:var(--sky);display:grid;place-items:center;color:var(--blue);font-size:17px}
+.control-layout{display:grid;grid-template-columns:minmax(270px,.9fr) minmax(0,1.5fr);gap:17px;margin-bottom:18px;align-items:stretch}
+.control-form{display:grid;gap:12px}
+.control-form .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.control-form .form-group.full{grid-column:1/-1}
+.control-chart-box{height:290px;position:relative;width:100%}
+.control-chart-box canvas,.control-dashboard-chart canvas{width:100%;height:100%;display:block}
+/* Banner de Control de Actividades */
+.control-banner{position:relative;min-height:200px;border-radius:18px;overflow:hidden;margin:-2px 0 22px;background:linear-gradient(110deg,#0d3457,#1769aa);box-shadow:var(--shadow);isolation:isolate;display:flex;align-items:center}
+.control-banner:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 30%,rgba(86,180,223,.28),transparent 50%),linear-gradient(90deg,rgba(8,35,61,.95) 0%,rgba(16,62,104,.82) 55%,rgba(23,105,170,.45) 100%);z-index:-1}
+.control-banner-content{position:relative;z-index:1;width:100%;padding:28px 32px;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}
+.control-banner-text{max-width:620px}
+.control-banner-kicker{font-size:10px;font-weight:800;letter-spacing:1.6px;color:#bfe7ff;margin-bottom:8px;text-transform:uppercase}
+.control-banner h1{font-size:27px;line-height:1.18;letter-spacing:-.7px;margin:0 0 8px;color:#fff}
+.control-banner p{font-size:13px;color:#e0edf7;margin:0;max-width:560px}
+.control-banner .control-csv-actions{display:flex;gap:10px;flex-wrap:wrap}
+.control-banner .btn-light{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);color:#fff;backdrop-filter:blur(6px)}
+.control-banner .btn-light:hover{background:rgba(255,255,255,.24)}
+.control-banner .btn-primary{background:#fff;color:#145b92;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+.control-banner .btn-primary:hover{background:#f0f7fc;transform:translateY(-1px)}
+@media(max-width:760px){.control-banner-content{padding:24px 20px}.control-banner h1{font-size:22px}}
+
+.control-table-head{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;flex-wrap:wrap;margin-bottom:14px}
+.control-table{width:100%;border-collapse:collapse;min-width:780px}
+.control-table th,.control-table td{text-align:left;padding:12px 13px;border-bottom:1px solid #edf2f6;font-size:12px;vertical-align:middle}
+.control-table th{background:#f6f9fc;color:#64748b;font-size:10px;text-transform:uppercase;letter-spacing:.6px}
+.control-table tbody tr:hover{background:#f8fbfd}
+.control-table tr:last-child td{border-bottom:0}
+.control-priority,.control-state{display:inline-flex;padding:4px 9px;border-radius:20px;font-size:10px;font-weight:750;white-space:nowrap}
+.priority-high{background:#fff0f0;color:#bb4141}.priority-medium{background:#eaf5fc;color:#1769aa}.priority-low{background:#f1f4f7;color:#65758a}
+.state-pending{background:#f1f4f7;color:#536579}.state-progress{background:#fff5e6;color:#a76805}.state-done{background:#e8f7ef;color:#138257}
+.control-actions{display:flex;justify-content:flex-end;gap:5px}
+.control-action{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 8px;color:#52657a;font-size:11px;font-weight:700}
+.control-action:hover{border-color:#bdd9ec;color:var(--blue);background:#f4faff}
+.control-action.danger:hover{border-color:#f5cdcd;color:#bd4141;background:#fff6f6}
+.control-dash-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);gap:16px}
+.control-dashboard-chart{height:220px;position:relative;width:100%}
+.control-preview{display:grid;gap:9px}
+.control-preview-item{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid #eff3f6}
+.control-preview-item:last-child{border:0}
+.control-preview-dot{width:9px;height:9px;border-radius:50%;background:#2588ce;flex:0 0 auto}
+.control-preview-info{flex:1;min-width:0}
+.control-preview-info b{display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.control-preview-info small{color:var(--muted);font-size:10px}
+.control-preview-state{font-size:10px;font-weight:750;color:var(--blue);white-space:nowrap}
+.control-toolbar{display:grid;grid-template-columns:minmax(180px,1fr) minmax(150px,190px) minmax(140px,170px);gap:9px;min-width:min(100%,520px)}
+.control-help{font-size:11px;color:var(--muted);margin-top:10px}
+.control-section-title{font-size:15px;font-weight:750;margin:0;color:var(--ink)}
+.control-csv-actions{display:flex;gap:8px;flex-wrap:wrap}
+@media(max-width:1050px){.control-layout{grid-template-columns:1fr}.control-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.control-dash-grid{grid-template-columns:1fr}.control-toolbar{grid-template-columns:1fr;min-width:0}.control-table-head{display:block}.control-table-head>div+div{margin-top:12px}.control-chart-box{height:250px}}
+@media(max-width:430px){.control-kpi{padding:13px}.control-kpi-value{font-size:22px}.control-form .form-grid{grid-template-columns:1fr}.control-form .form-group.full{grid-column:auto}}
+
+
+/* Banners de las secciones principales */
+.section-banner{position:relative;min-height:205px;border-radius:18px;overflow:hidden;margin:-2px 0 22px;background:linear-gradient(110deg,#0d3457,#1769aa);box-shadow:var(--shadow);isolation:isolate}
+.section-banner img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:center}
+.section-banner:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,35,61,.94) 0%,rgba(8,45,78,.78) 48%,rgba(8,45,78,.20) 100%)}
+.section-banner-content{position:relative;z-index:1;max-width:690px;padding:27px 30px;color:#fff}
+.section-banner-kicker{color:#bfe7ff;font-size:10px;font-weight:800;letter-spacing:1.5px;margin-bottom:8px}
+.section-banner h2{color:#fff;font-size:25px;line-height:1.18;letter-spacing:-.5px;margin:0 0 8px}
+.section-banner p{color:#e2eff8;font-size:13px;margin:0;max-width:580px}
+.section-banner-credit{position:absolute;right:11px;bottom:8px;color:#fff;font-size:9px;text-shadow:0 1px 3px #000;z-index:2}
+.section-banner-credit a{color:#fff}
+.activities-banner img{object-position:center 48%}
+.calendar-banner img{object-position:center 50%}
+.settings-banner img{object-position:center 45%}
+.emoji-picker{display:flex;flex-wrap:wrap;gap:7px;padding:10px;border:1px solid var(--line);border-radius:11px;background:#f8fbfd}
+.emoji-choice{width:38px;height:38px;border:1px solid #e1eaf1;border-radius:9px;background:#fff;display:grid;place-items:center;font-size:20px;transition:background .15s ease,border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+.emoji-choice:hover,.emoji-choice:focus-visible{background:#eaf5fc;border-color:#8fc5e8;box-shadow:0 3px 10px rgba(23,105,170,.12);transform:translateY(-1px);outline:none}
+.emoji-choice.selected{background:#dff0fc;border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue),0 3px 9px rgba(23,105,170,.12)}
+@media(max-width:760px){.section-banner{min-height:220px}.section-banner:after{background:linear-gradient(90deg,rgba(8,35,61,.95),rgba(8,45,78,.62))}.section-banner-content{padding:23px 20px}.section-banner h2{font-size:21px}.section-banner-credit{right:9px;bottom:6px}}
+
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="brandmark">✦</div><div><strong>Portal Digital</strong><small>Actividades & Objetivos</small></div></div>
+  <div class="nav-label">Principal</div>
+  <nav class="nav">
+    <button class="active" data-page="dashboard"><span class="ico">▦</span>Dashboard</button>
+    <button data-page="activities"><span class="ico">◷</span>Actividades</button>
+    <button data-page="control"><span class="ico">▤</span>Control de actividades</button>
+    <button data-page="objectives"><span class="ico">◎</span>Objetivos</button>
+    <button data-page="calendar"><span class="ico">▦</span>Calendario</button>
+    <button data-page="registrations"><span class="ico">♧</span>Inscripciones</button>
+  </nav>
+  <div class="nav-label">Administración</div>
+  <nav class="nav">
+    <button data-page="settings"><span class="ico">⚙</span>Configuración</button>
+    <button data-page="legal"><span class="ico">⚖</span>Aspectos legales</button>
+    <button data-page="project"><span class="ico">📘</span><span class="project-nav-label">Alfabetización en IA | Proyecto</span></button>
+  </nav>
+  <div class="side-bottom"><strong>Portal Digital v1.5</strong>Prototipo MVP · Datos guardados en este navegador</div>
+</aside>
+<main class="main">
+  <header class="topbar">
+    <div style="display:flex;align-items:center;gap:13px"><button class="iconbtn mobile-menu" id="menuBtn" aria-label="Abrir menú">☰</button><div class="crumb">Portal Digital <span style="color:#c0cbd5">/</span> <b id="crumb">Dashboard</b></div></div>
+    <div class="top-actions"><button class="iconbtn" title="Ayuda" onclick="toast('Portal Digital · Prototipo MVP')">?</button><span class="user-label small muted">Administrador</span><div class="avatar">AD</div></div>
+  </header>
+  <div class="content">
+    <section class="page active" id="page-dashboard">
+      <div class="heading"><div><h1>¡Bienvenido al Portal Digital! 👋</h1><p>Centraliza tus actividades y monitorea los objetivos de tu equipo.</p></div><button class="btn btn-primary" onclick="openActivity()">＋ Nueva actividad</button></div>
+      <div class="hero-banner">
+        <img src="https://img.innovaciondigital360.com/wp-content/uploads/2026/01/26120401/Acuerdos-tecnologicos.jpg.webp" alt="Interacción entre una mano humana y una mano robótica alrededor de un símbolo de inteligencia artificial" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+        <div class="hero-content">
+          <div class="hero-kicker">COLABORACIÓN · INNOVACIÓN · ACCESIBILIDAD</div>
+          <h2>Conectamos personas, actividades y tecnología</h2>
+          <p>Un espacio digital para organizar iniciativas, facilitar la participación y avanzar juntos hacia objetivos compartidos.</p>
+          <button class="btn" onclick="showPage('activities')">Explorar actividades <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="hero-credit">Imagen: <a href="https://img.innovaciondigital360.com/wp-content/uploads/2026/01/26120401/Acuerdos-tecnologicos.jpg.webp" target="_blank" rel="noopener noreferrer">Innovación Digital 360</a></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div><small>Actividades registradas</small><strong id="statActivities">0</strong></div><div class="stat-icon">◷</div></div>
+        <div class="stat"><div><small>Próximas actividades</small><strong id="statUpcoming">0</strong></div><div class="stat-icon">▣</div></div>
+        <div class="stat"><div><small>Inscripciones</small><strong id="statRegistrations">0</strong></div><div class="stat-icon">♧</div></div>
+        <div class="stat"><div><small>Objetivos cumplidos</small><strong id="statGoals">0/0</strong></div><div class="stat-icon">◎</div></div>
+      </div>
+
+      <div class="panel" id="controlDashboardSummary" style="margin-bottom:20px">
+        <div class="panel-head">
+          <div><h3>Control de actividades</h3><span class="small muted">Resumen de tareas, horas y cumplimiento</span></div>
+          <button class="btn btn-light btn-sm" onclick="showPage('control')">Abrir control →</button>
+        </div>
+        <div class="control-kpis">
+          <div class="control-kpi"><span class="control-kpi-icon">◷</span><div class="control-kpi-label">Horas acumuladas</div><div class="control-kpi-value" id="dashControlHours">0 h</div><div class="control-kpi-sub">Horas reales dedicadas</div></div>
+          <div class="control-kpi"><span class="control-kpi-icon">↗</span><div class="control-kpi-label">Avance global</div><div class="control-kpi-value" id="dashControlProgress">0%</div><div class="control-kpi-sub">Ponderado por horas estimadas</div></div>
+          <div class="control-kpi"><span class="control-kpi-icon">✎</span><div class="control-kpi-label">Tareas pendientes</div><div class="control-kpi-value" id="dashControlPending">0</div><div class="control-kpi-sub">Pendientes o en progreso</div></div>
+          <div class="control-kpi"><span class="control-kpi-icon">✓</span><div class="control-kpi-label">Tasa de cumplimiento</div><div class="control-kpi-value" id="dashControlRate">0%</div><div class="control-kpi-sub" id="dashControlRateSub">0 de 0 completadas</div></div>
+        </div>
+        <div class="control-dash-grid">
+          <div><div class="panel-head"><h3>Horas por categoría</h3><span class="small muted">Estimadas vs. reales</span></div><div class="control-dashboard-chart"><canvas id="controlDashboardChart" role="img" aria-label="Comparación de horas estimadas y reales por categoría"></canvas></div></div>
+          <div><div class="panel-head"><h3>Actividad reciente</h3><span class="small muted">Control de tareas</span></div><div class="control-preview" id="controlDashboardPreview"></div></div>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="panel"><div class="panel-head"><h3>Próximas actividades</h3><button class="btn btn-light btn-sm" onclick="showPage('activities')">Ver todas →</button></div><div class="activity-list" id="dashboardActivities"></div></div>
+        <div class="panel"><div class="panel-head"><h3>Progreso de objetivos</h3><button class="btn btn-light btn-sm" onclick="showPage('objectives')">Ver objetivos →</button></div><div class="progress-wrap" id="dashboardGoals"></div></div>
+      </div>
+      <div class="panel"><div class="panel-head"><h3>Accesos rápidos</h3><span class="small muted">Gestiona tu portal</span></div><div class="setting-actions"><button class="btn btn-light" onclick="openActivity()">＋ Crear actividad</button><button class="btn btn-light" onclick="showPage('control')">▤ Control de actividades</button><button class="btn btn-light" onclick="openObjective()">◎ Registrar objetivo</button><button class="btn btn-light" onclick="showPage('registrations')">♧ Ver inscripciones</button><button class="btn btn-light" onclick="showPage('calendar')">▦ Abrir calendario</button></div></div>
+    </section>
+    <section class="page" id="page-activities">
+      <div class="heading"><div><h1>Actividades y eventos</h1><p>Organiza, publica y administra las actividades de tu comunidad.</p></div><button class="btn btn-primary" onclick="openActivity()">＋ Nueva actividad</button></div>
+      <div class="section-banner activities-banner">
+        <img src="https://www.sonda.com/images/sondanewsitelibraries/default-library/banner-nota-iac68cab6c-b0fc-46cf-9a84-a608915ae777.png" alt="Banner de tecnología e inteligencia artificial para la sección de actividades" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+        <div class="section-banner-content"><div class="section-banner-kicker">PARTICIPACIÓN · ORGANIZACIÓN · COLABORACIÓN</div><h2>Actividades que conectan a las personas</h2><p>Publica eventos, comparte información y facilita la participación de tu comunidad desde un solo lugar.</p></div>
+        <div class="section-banner-credit"><a href="https://www.sonda.com/images/sondanewsitelibraries/default-library/banner-nota-iac68cab6c-b0fc-46cf-9a84-a608915ae777.png" target="_blank" rel="noopener noreferrer">Imagen: SONDA</a></div>
+      </div>
+      <div class="toolbar"><div class="search"><span>⌕</span><input id="activitySearch" placeholder="Buscar actividad..." oninput="renderActivities()"></div><select id="activityFilter" style="max-width:190px" onchange="renderActivities()"><option value="">Todas las categorías</option></select><select id="statusFilter" style="max-width:160px" onchange="renderActivities()"><option value="">Todos los estados</option><option>Publicada</option><option>Borrador</option><option>Finalizada</option><option>Cancelada</option></select></div>
+      <div class="cards" id="activityCards"></div>
+    </section>
+
+    <section class="page" id="page-control">
+      <div class="control-banner">
+        <div class="control-banner-content">
+          <div class="control-banner-text">
+            <div class="control-banner-kicker">GESTIÓN · TIEMPOS · CUMPLIMIENTO</div>
+            <h1>Control de actividades</h1>
+            <p>Registra tareas, estima y compara horas, define prioridades y monitorea el cumplimiento.</p>
+          </div>
+          <div class="control-csv-actions">
+          <button class="btn btn-light" onclick="exportControlCSV()">↓ Exportar tareas CSV</button>
+          <button class="btn btn-light" onclick="exportControlJSON()">↓ Exportar respaldo JSON</button>
+          <button class="btn btn-light" onclick="$('controlJsonImport').click()">↑ Importar JSON</button>
+          <input id="controlJsonImport" type="file" accept=".json,application/json" style="display:none" aria-label="Seleccionar respaldo JSON de actividades" onchange="importControlJSON(event)">
+          <button class="btn btn-light" onclick="resetControlDemo()">↻ Restablecer demo</button>
+          <button class="btn btn-primary" onclick="exportPortalCSV()">↓ Exportar todos los datos CSV</button>
+        </div>
+        </div>
+      </div>
+
+      <div class="control-kpis" aria-label="Indicadores del control de actividades">
+        <div class="control-kpi"><span class="control-kpi-icon">◷</span><div class="control-kpi-label">Horas acumuladas</div><div class="control-kpi-value" id="ctlHours">0 h</div><div class="control-kpi-sub">Horas reales dedicadas</div></div>
+        <div class="control-kpi"><span class="control-kpi-icon">↗</span><div class="control-kpi-label">Avance global</div><div class="control-kpi-value" id="ctlProgress">0%</div><div class="track" style="margin-top:10px"><div class="fill" id="ctlProgressBar" style="width:0%"></div></div><div class="control-kpi-sub">Ponderado por horas estimadas</div></div>
+        <div class="control-kpi"><span class="control-kpi-icon">✎</span><div class="control-kpi-label">Tareas pendientes</div><div class="control-kpi-value" id="ctlPending">0</div><div class="control-kpi-sub">Pendientes o en progreso</div></div>
+        <div class="control-kpi"><span class="control-kpi-icon">✓</span><div class="control-kpi-label">Tasa de cumplimiento</div><div class="control-kpi-value" id="ctlRate">0%</div><div class="control-kpi-sub" id="ctlRateSub">0 de 0 completadas</div></div>
+      </div>
+
+      <div class="control-layout">
+        <section class="panel" aria-labelledby="control-form-title">
+          <div class="panel-head"><h3 id="control-form-title" class="control-section-title">Nueva actividad</h3><button id="controlCancelEdit" class="btn btn-light btn-sm" type="button" style="display:none">Cancelar edición</button></div>
+          <form id="controlActivityForm" class="control-form" novalidate>
+            <div><label for="ctlName">Nombre de la actividad *</label><input id="ctlName" maxlength="120" required placeholder="Ej. Preparar informe mensual"></div>
+            <div><label for="ctlCategory">Categoría *</label><select id="ctlCategory" required><option value="">Selecciona categoría</option><option>Trabajo</option><option>Estudio</option><option>Proyecto Personal</option><option>Tareas Operativas</option><option>Salud/Bienestar</option></select></div>
+            <div class="form-grid">
+              <div><label for="ctlEstimated">Horas estimadas *</label><input id="ctlEstimated" type="number" min="0.5" max="10000" step="0.5" required placeholder="Ej. 8"></div>
+              <div><label for="ctlReal">Horas reales *</label><input id="ctlReal" type="number" min="0" max="10000" step="0.5" required placeholder="Ej. 3.5"></div>
+            </div>
+            <div><label for="ctlDate">Fecha límite / ejecución *</label><input id="ctlDate" type="date" required></div>
+            <div class="form-grid">
+              <div><label for="ctlPriority">Prioridad *</label><select id="ctlPriority" required><option>Alta</option><option selected>Media</option><option>Baja</option></select></div>
+              <div><label for="ctlState">Estado *</label><select id="ctlState" required><option>Pendiente</option><option>En progreso</option><option>Completada</option></select></div>
+            </div>
+            <button id="controlSubmit" type="submit" class="btn btn-primary" style="width:100%">＋ Registrar actividad</button>
+          </form>
+          <p class="control-help">Los cambios se guardan en el almacenamiento local de este navegador.</p><p class="control-help">El archivo CSV completo puede incluir nombres y correos de participantes. Guárdalo en un lugar protegido y compártelo solo con personas autorizadas.</p>
+        </section>
+
+        <section class="panel" aria-labelledby="control-chart-title">
+          <div class="panel-head"><div><h3 id="control-chart-title" class="control-section-title">Horas por categoría</h3><p class="small muted" style="margin:4px 0 0">Comparativa de horas estimadas frente a horas reales</p></div></div>
+          <div class="control-chart-box"><canvas id="controlChart" role="img" aria-label="Gráfico de barras con horas estimadas y reales por categoría"></canvas></div>
+        </section>
+      </div>
+
+      <section class="panel" aria-labelledby="control-table-title">
+        <div class="control-table-head">
+          <div><h3 id="control-table-title" class="control-section-title">Control de actividades</h3><p id="controlTableCount" class="small muted" style="margin:4px 0 0" aria-live="polite">Mostrando 0 actividades</p></div>
+          <div class="control-toolbar">
+            <input id="controlSearch" type="search" placeholder="Buscar actividad…" aria-label="Buscar actividad">
+            <select id="controlCategoryFilter" aria-label="Filtrar por categoría"><option value="">Todas las categorías</option><option>Trabajo</option><option>Estudio</option><option>Proyecto Personal</option><option>Tareas Operativas</option><option>Salud/Bienestar</option></select>
+            <select id="controlStateFilter" aria-label="Filtrar por estado"><option value="">Todos los estados</option><option>Pendiente</option><option>En progreso</option><option>Completada</option></select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="control-table"><thead><tr><th>Tarea</th><th>Categoría</th><th>Horas reales / estimadas</th><th>Prioridad</th><th>Estado</th><th>Acciones</th></tr></thead><tbody id="controlTableBody"></tbody></table>
+        </div>
+        <p class="control-help">Puedes cambiar el estado desde la etiqueta, editar los datos o eliminar un registro. La exportación CSV incluye todos los registros, aunque haya filtros activos.</p>
+      </section>
+    </section>
+    <section class="page" id="page-objectives">
+      <div class="heading"><div><h1>Gestión de objetivos</h1><p>Define metas, asigna responsables y monitorea los avances.</p></div><button class="btn btn-primary" onclick="openObjective()">＋ Nuevo objetivo</button></div>
+      <div class="stats" style="grid-template-columns:repeat(3,1fr)"><div class="stat"><div><small>Total objetivos</small><strong id="goalTotal">0</strong></div><div class="stat-icon">◎</div></div><div class="stat"><div><small>En desarrollo</small><strong id="goalActive">0</strong></div><div class="stat-icon">↗</div></div><div class="stat"><div><small>Cumplidos</small><strong id="goalDone">0</strong></div><div class="stat-icon">✓</div></div></div>
+      <div class="toolbar"><div class="search"><span>⌕</span><input id="goalSearch" placeholder="Buscar objetivo..." oninput="renderObjectives()"></div><select id="goalFilter" style="max-width:190px" onchange="renderObjectives()"><option value="">Todos los estados</option><option>Pendiente</option><option>En desarrollo</option><option>En revisión</option><option>Cumplido</option><option>Atrasado</option></select></div>
+      <div class="objective-grid" id="objectiveCards"></div>
+    </section>
+    <section class="page" id="page-calendar">
+      <div class="heading"><div><h1>Calendario de actividades</h1><p>Consulta la planificación de eventos por fecha.</p></div><button class="btn btn-primary" onclick="openActivity()">＋ Nueva actividad</button></div>
+      <div class="section-banner calendar-banner">
+        <img src="https://www.sonda.com/images/sondanewsitelibraries/sonda_2024/industrias/banner-conoce/banner_conoce_nuestras_redes.jpg" alt="Imagen de redes y conectividad para la sección de calendario" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+        <div class="section-banner-content"><div class="section-banner-kicker">PLANIFICACIÓN · COORDINACIÓN · TIEMPO</div><h2>Coordina cada actividad y encuentro</h2><p>Visualiza las fechas importantes, organiza la agenda y mantén las actividades de tu equipo conectadas.</p></div>
+        <div class="section-banner-credit"><a href="https://www.sonda.com/images/sondanewsitelibraries/sonda_2024/industrias/banner-conoce/banner_conoce_nuestras_redes.jpg" target="_blank" rel="noopener noreferrer">Imagen: SONDA</a></div>
+      </div>
+      <div class="panel"><div class="calendar-head"><button class="btn btn-light btn-sm" onclick="changeMonth(-1)">← Anterior</button><h3 id="monthTitle" style="margin:0"></h3><button class="btn btn-light btn-sm" onclick="changeMonth(1)">Siguiente →</button></div><div class="calendar-scroll"><div class="calendar-grid" id="calendarGrid"></div></div></div>
+    </section>
+    <section class="page" id="page-registrations">
+      <div class="heading"><div><h1>Inscripciones</h1><p>Consulta las personas inscritas en las actividades publicadas.</p></div><button class="btn btn-light" onclick="exportCSV()">↓ Exportar CSV</button></div>
+      <div class="stats" style="grid-template-columns:repeat(2,1fr)"><div class="stat"><div><small>Inscripciones totales</small><strong id="regTotal">0</strong></div><div class="stat-icon">♧</div></div><div class="stat"><div><small>Actividades con inscritos</small><strong id="regEvents">0</strong></div><div class="stat-icon">◷</div></div></div>
+      <div class="toolbar"><div class="search"><span>⌕</span><input id="regSearch" placeholder="Buscar participante o actividad..." oninput="renderRegistrations()"></div></div>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>Participante</th><th>Correo electrónico</th><th>Actividad</th><th>Fecha de inscripción</th><th>Acción</th></tr></thead><tbody id="registrationRows"></tbody></table></div>
+      <p class="small muted" style="margin-top:12px">Los datos de participantes son privados y se almacenan únicamente en este navegador en esta versión de demostración.</p>
+    </section>
+    <section class="page" id="page-settings">
+      <div class="heading"><div><h1>Configuración</h1><p>Personaliza el portal y administra los datos del prototipo.</p></div></div>
+      <div class="section-banner settings-banner">
+        <img src="https://wallpaperaccess.com/full/4893666.jpg" alt="Imagen tecnológica decorativa para la sección de configuración" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+        <div class="section-banner-content"><div class="section-banner-kicker">PERSONALIZACIÓN · ADMINISTRACIÓN · CONTROL</div><h2>Configura tu espacio de trabajo</h2><p>Administra las preferencias, clasificaciones y respaldos de información del Portal Digital.</p></div>
+        <div class="section-banner-credit"><a href="https://wallpaperaccess.com/full/4893666.jpg" target="_blank" rel="noopener noreferrer">Ver imagen original</a></div>
+      </div>
+      <div class="settings-grid">
+        <div class="panel"><div class="panel-head"><h3>Identidad del portal</h3></div><label>Nombre de la organización</label><input id="orgName" placeholder="Nombre de la organización"><div style="height:13px"></div><label>Nombre del administrador</label><input id="adminName" placeholder="Administrador"><div style="height:13px"></div><button class="btn btn-primary" onclick="saveSettings()">Guardar configuración</button></div>
+        <div class="panel"><div class="panel-head"><h3>Clasificaciones</h3></div><div id="categoryList" style="display:grid;gap:8px;margin-bottom:12px"></div><div style="display:flex;gap:8px"><input id="newCategory" placeholder="Nueva clasificación"><button class="btn btn-primary" onclick="addCategory()">＋</button></div></div>
+        <div class="panel"><div class="panel-head"><h3>Respaldo de información</h3></div><p class="small muted">Descarga todos los datos del portal en formato JSON o restaura un respaldo anterior.</p><div class="setting-actions"><button class="btn btn-light" onclick="exportJSON()">↓ Exportar respaldo</button><label class="btn btn-light" style="margin:0;cursor:pointer">↑ Importar respaldo<input type="file" accept="application/json" id="importFile" hidden onchange="importJSON(event)"></label></div></div>
+        <div class="panel"><div class="panel-head"><h3>Datos de demostración</h3></div><p class="small muted">Puedes cargar ejemplos para explorar el funcionamiento o restablecer el prototipo.</p><div class="setting-actions"><button class="btn btn-light" onclick="loadDemo()">Cargar ejemplos</button><button class="btn btn-danger" onclick="resetData()">Restablecer datos</button></div></div>
+      </div>
+      <div class="panel" style="margin-top:18px"><h3 style="margin-top:0">Información técnica</h3><p class="small muted">Aplicación desarrollada con HTML5, CSS3 y JavaScript puro. Los datos se guardan en LocalStorage del navegador. No existe autenticación real, sincronización entre usuarios ni almacenamiento centralizado. Para uso institucional se recomienda implementar backend, base de datos, controles de acceso, HTTPS y políticas de privacidad.</p></div>
+    </section>
+    <section class="page" id="page-legal">
+      <div class="heading"><div><h1>Aspectos legales</h1><p>Marco normativo y criterios de protección aplicables al Portal Digital.</p></div></div>
+      <div class="legal-banner">
+        <img src="https://www.ruletarusa.mx/wp-content/uploads/2026/09/ia.png" alt="Ilustración relacionada con inteligencia artificial y tecnología" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+        <div class="legal-banner-content">
+          <div class="legal-kicker">PRIVACIDAD · TRANSPARENCIA · RESPONSABILIDAD</div>
+          <h2>Protección de datos y uso responsable de la tecnología</h2>
+          <p>El portal debe gestionar la información de sus participantes con transparencia, resguardar su privacidad y respetar la normativa chilena vigente.</p>
+        </div>
+        <div class="legal-banner-credit"><a href="https://www.ruletarusa.mx/wp-content/uploads/2026/09/ia.png" target="_blank" rel="noopener noreferrer">Ver imagen original</a></div>
+      </div>
+      <div class="panel" style="margin-bottom:16px">
+        <div class="panel-head"><h3>Marco normativo aplicable</h3><span class="pill">Chile</span></div>
+        <p class="legal-intro">El proyecto considera las siguientes disposiciones y obligaciones institucionales para el tratamiento responsable de la información y los recursos utilizados en la plataforma.</p>
+        <div class="legal-table-wrap">
+          <table class="legal-table">
+            <thead><tr><th>Norma / referencia</th><th>Materia</th><th>Aplicación en el proyecto</th></tr></thead>
+            <tbody>
+              <tr><td>Ley N.º 19.628</td><td>Protección de datos personales. Normativa actualmente vigente en Chile.</td><td>Resguardar los datos de participantes, limitar su recopilación a lo necesario, informar la finalidad de uso y evitar su divulgación no autorizada.</td></tr>
+              <tr><td>Ley N.º 21.719</td><td>Moderniza el marco chileno de protección de datos personales.</td><td>Considerar sus nuevas exigencias y preparar los procesos de tratamiento de información para su entrada en vigencia indicada para el 1 de diciembre de 2026.</td></tr>
+              <tr><td>Ley N.º 17.336</td><td>Propiedad Intelectual y derechos de autor.</td><td>Respetar los derechos sobre el código, imágenes, textos, iconos y demás recursos incorporados. Utilizar materiales propios, licenciados o con autorización correspondiente.</td></tr>
+              <tr><td>Reglamentos institucionales</td><td>Políticas, protocolos y normas internas de la organización.</td><td>Proteger la información personal de los participantes y aplicar los procedimientos institucionales de acceso, uso, conservación y eliminación de datos.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h3>Compromisos de privacidad y uso responsable</h3></div>
+        <div class="settings-grid">
+          <div><span class="pill green">Privacidad</span><p class="small muted">Solicitar únicamente los datos necesarios para gestionar actividades e inscripciones y utilizarlos para finalidades informadas.</p></div>
+          <div><span class="pill green">Transparencia</span><p class="small muted">Explicar a los participantes qué información se solicita, para qué se utiliza y quién puede acceder a ella.</p></div>
+          <div><span class="pill green">Accesibilidad</span><p class="small muted">Ofrecer alternativas de acceso a la información, además de los códigos QR, para evitar barreras de participación.</p></div>
+          <div><span class="pill green">Supervisión humana</span><p class="small muted">Mantener bajo supervisión humana las publicaciones y las decisiones relacionadas con los participantes.</p></div>
+        </div>
+      </div>
+      <div class="legal-note"><strong>Nota de alcance</strong>Esta sección resume referencias legales entregadas para el proyecto y no constituye asesoría jurídica ni acredita por sí sola el cumplimiento normativo. Antes de utilizar el portal con datos reales, se deben validar los textos, avisos de privacidad, bases de tratamiento, plazos de conservación y medidas de seguridad con la institución y asesoría competente.</div>
+      <div class="panel" style="margin-top:16px">
+        <div class="panel-head"><h3>Material gráfico complementario</h3></div>
+        <p class="small muted">La imagen principal se muestra en el banner superior. Para incorporar una segunda imagen en esta sección, falta recibir su enlace.</p>
+      </div>
+    </section>
+
+    <section class="page" id="page-project">
+      <div class="heading">
+        <div>
+          <h1>Alfabetización en IA | Proyecto</h1>
+          <p>Presentación general y fortalezas del proyecto desarrollado por el equipo Sala14.</p>
+        </div>
+      </div>
+
+      <div class="project-banner">
+        <img src="https://img.magnific.com/fotos-premium/manos-humanas-robot-conectando-piezas-rompecabezas-madera-digitales-concepto-colaboracion-ia_411562-18332.jpg"
+             alt="Mano humana y mano robótica conectando piezas de rompecabezas, símbolo de colaboración entre personas e inteligencia artificial"
+             loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+        <div class="project-banner-content">
+          <div class="project-kicker">PROYECTO DE IA APLICADA · EQUIPO SALA14 · IPLACEX</div>
+          <h2>Portal Digital de Actividades, Objetivos y Accesibilidad</h2>
+          <p>Una plataforma web para centralizar la organización de actividades, facilitar la comunicación y las inscripciones, y apoyar el seguimiento de objetivos de coordinaciones, equipos de trabajo y estudiantes.</p>
+        </div>
+        <div class="project-banner-credit">
+          <a href="https://img.magnific.com/fotos-premium/manos-humanas-robot-conectando-piezas-rompecabezas-madera-digitales-concepto-colaboracion-ia_411562-18332.jpg" target="_blank" rel="noopener noreferrer">Ver imagen original</a>
+        </div>
+      </div>
+
+      <div class="project-meta">
+        <div class="project-meta-item"><span>Institución</span><strong>IPLACEX</strong></div>
+        <div class="project-meta-item"><span>Equipo</span><strong>Sala14</strong></div>
+        <div class="project-meta-item"><span>Fecha de ficha</span><strong>28-10-2026</strong></div>
+        <div class="project-meta-item"><span>Modelo IA indicado</span><strong>ChatGPT (GPT-6)</strong></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Fortalezas del Proyecto</h3>
+          <span class="pill">Síntesis de la ficha</span>
+        </div>
+        <p class="legal-intro">Las siguientes fortalezas resumen la necesidad, los destinatarios, la solución tecnológica y los criterios de responsabilidad descritos en la ficha del proyecto.</p>
+        <div class="project-table-wrap">
+          <table class="project-table">
+            <thead>
+              <tr>
+                <th>Fortaleza</th>
+                <th>Idea general</th>
+                <th>Cómo se refleja en el proyecto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Problema identificado y comprensible</td>
+                <td>La falta de una herramienta centralizada dificulta organizar actividades, comunicar eventos, gestionar inscripciones y hacer seguimiento de objetivos.</td>
+                <td>El portal reúne estas tareas en un mismo espacio digital, facilitando la coordinación y el acceso a la información.</td>
+              </tr>
+              <tr>
+                <td>Público objetivo pertinente</td>
+                <td>La solución está dirigida a coordinaciones, equipos de trabajo y estudiantes que necesitan organizarse y participar en actividades.</td>
+                <td>La plataforma busca entregar información clara, simplificar las inscripciones y apoyar la planificación y el seguimiento del trabajo.</td>
+              </tr>
+              <tr>
+                <td>Uso de tecnologías web apropiadas para un prototipo inicial</td>
+                <td>La ficha define una plataforma web desarrollada con HTML, CSS y JavaScript.</td>
+                <td>Estas tecnologías permiten construir una primera versión navegable en el navegador y demostrar las funciones principales del proyecto.</td>
+              </tr>
+              <tr>
+                <td>Consideración de privacidad, accesibilidad, supervisión humana y normativa chilena</td>
+                <td>La propuesta considera privacidad, transparencia, equidad, accesibilidad y seguridad; también plantea recopilar los datos mínimos y explicar su finalidad.</td>
+                <td>Incluye alternativas de acceso además del QR, supervisión humana de publicaciones y decisiones, y consideración de las leyes N.º 19.628, N.º 21.719 y N.º 17.336, junto con reglamentos institucionales.</td>
+              </tr>
+              <tr>
+                <td>Potencial de crecimiento hacia una herramienta de gestión organizacional</td>
+                <td>La centralización de actividades, participantes e indicadores de objetivos permite proyectar una solución que apoye distintos procesos de coordinación.</td>
+                <td>La base funcional puede evolucionar progresivamente para ampliar la gestión, el seguimiento y la comunicación entre los equipos.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="project-summary">
+        <strong>Idea central del proyecto</strong>
+        El Portal Digital propone una herramienta web de apoyo a la gestión y participación: concentra actividades y eventos, facilita las inscripciones mediante enlaces y códigos QR, y permite registrar objetivos y monitorear sus avances. Su diseño considera desde el inicio la accesibilidad, la privacidad y el uso responsable de la información.
+      </div>
+      <p class="small muted" style="margin:12px 2px 0">Contenido elaborado a partir de la ficha “FICHA DE PROYECTO: IA APLICADA”, equipo Sala14, IPLACEX, fecha 28-10-2026.</p>
+    </section>
+  </div>
+</main>
+</div>
+<div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-head"><h2 id="modalTitle">Nueva actividad</h2><button class="close" onclick="closeModal()">×</button></div><div class="modal-body" id="modalBody"></div><div class="modal-foot" id="modalFoot"></div></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const KEY='portalDigitalMVP_v1';
+const defaultCategories=['Clase','Charla','Conversatorio','Salida a Terreno','Visita Externa','Taller Deportivo'];
+let data={activities:[],objectives:[],registrations:[],controlActivities:[],categories:defaultCategories,settings:{org:'Mi organización',admin:'Administrador'}};
+let calDate=new Date(), editingId=null, modalType='', controlEditingId=null;
+const CONTROL_CATEGORIES=['Trabajo','Estudio','Proyecto Personal','Tareas Operativas','Salud/Bienestar'];
+const CONTROL_PRIORITIES=['Alta','Media','Baja'];
+const CONTROL_STATES=['Pendiente','En progreso','Completada'];
+const CONTROL_WEIGHT={'Pendiente':0,'En progreso':0.5,'Completada':1};
+const $=id=>document.getElementById(id);
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const today=()=>new Date().toISOString().slice(0,10);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function save(){try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){toast('No fue posible guardar los datos.')} }
+function createControlDemo(){const plus=n=>{const d=new Date();d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)};return [
+{id:uid(),name:'Preparar planificación semanal',category:'Trabajo',estimated:6,real:4.5,date:plus(2),priority:'Alta',state:'En progreso'},
+{id:uid(),name:'Revisar contenidos de formación',category:'Estudio',estimated:5,real:2,date:plus(5),priority:'Media',state:'En progreso'},
+{id:uid(),name:'Documentar mejoras del portal',category:'Proyecto Personal',estimated:8,real:0,date:plus(10),priority:'Media',state:'Pendiente'},
+{id:uid(),name:'Completar registro de tareas',category:'Tareas Operativas',estimated:3,real:3,date:plus(-2),priority:'Baja',state:'Completada'}]}
+function sanitizarControlActivity(a){if(!a||typeof a!=='object')return null;const name=typeof a.name==='string'?a.name.trim():'';const estimated=Number(a.estimated),real=Number(a.real);if(name.length<3||name.length>120||!CONTROL_CATEGORIES.includes(a.category)||!CONTROL_PRIORITIES.includes(a.priority)||!CONTROL_STATES.includes(a.state)||!(estimated>0&&estimated<=10000)||!(real>=0&&real<=10000)||!/^\d{4}-\d{2}-\d{2}$/.test(a.date||''))return null;return {id:typeof a.id==='string'&&a.id?a.id:uid(),name,category:a.category,estimated,real,date:a.date,priority:a.priority,state:a.state}}
+function load(){try{const saved=localStorage.getItem(KEY);if(saved){const parsed=JSON.parse(saved);data={...data,...parsed};if(!Array.isArray(parsed.controlActivities)){data.controlActivities=createControlDemo();save();}else{data.controlActivities=parsed.controlActivities.map(sanitizarControlActivity).filter(Boolean);}}else{data.controlActivities=createControlDemo();save();}}catch(e){console.warn('No se pudo leer el almacenamiento local',e);if(!Array.isArray(data.controlActivities))data.controlActivities=[]}}
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(window._toastTimer);window._toastTimer=setTimeout(()=>el.classList.remove('show'),2600)}
+function fmtDate(s){if(!s)return 'Sin fecha';return new Date(s+'T12:00:00').toLocaleDateString('es-CL',{day:'2-digit',month:'short',year:'numeric'})}
+function showPage(name){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));$('page-'+name).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));$('crumb').textContent=({dashboard:'Dashboard',activities:'Actividades',objectives:'Objetivos',calendar:'Calendario',registrations:'Inscripciones',settings:'Configuración',legal:'Aspectos legales',project:'Alfabetización en IA | Proyecto',control:'Control de actividades'})[name];$('sidebar').classList.remove('open');renderAll();requestAnimationFrame(()=>updateControlCharts())}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+$('menuBtn').addEventListener('click',()=>$('sidebar').classList.toggle('open'));
+function openModal(title,body,foot){$('modalTitle').textContent=title;$('modalBody').innerHTML=body;$('modalFoot').innerHTML=foot;$('modalBackdrop').classList.add('show')}
+function closeModal(){$('modalBackdrop').classList.remove('show');editingId=null}
+function openActivity(id=null){editingId=id;modalType='activity';const a=id?data.activities.find(x=>x.id===id):{};const cats=data.categories.map(c=>`<option ${a.category===c?'selected':''}>${esc(c)}</option>`).join('');openModal(id?'Editar actividad':'Nueva actividad',`
+<form id="activityForm" class="form-grid">
+<div class="form-group full"><label for="aTitle">Título *</label><input id="aTitle" required maxlength="100" value="${esc(a.title||'')}" placeholder="Ej. Jornada de bienvenida"></div>
+<div class="form-group full"><label for="aDesc">Descripción</label><textarea id="aDesc" maxlength="600" placeholder="Describe la actividad...">${esc(a.description||'')}</textarea></div>
+<div class="form-group"><label for="aCategory">Clasificación</label><select id="aCategory">${cats}</select></div>
+<div class="form-group full">
+<label for="aEmoji">Icono de la actividad</label>
+<div class="emoji-picker" id="activityEmojiPicker" aria-label="Seleccionar icono para la actividad">
+${['📌','🎓','💬','🌱','🏃','🧠','🎨','🛠️','🤝','🧪','🏆','💻','🎭','🎯','🚌','🔔','📚','⚽','🎤','🌍','💡','🎉','🧩','🚀'].map(icon=>`<button type="button" class="emoji-choice ${(a.emoji||'📌')===icon?'selected':''}" data-emoji="${esc(icon)}" aria-label="Seleccionar ${esc(icon)}" aria-pressed="${(a.emoji||'📌')===icon}">${esc(icon)}</button>`).join('')}
+</div>
+<input id="aEmoji" maxlength="8" value="${esc(a.emoji||'📌')}" placeholder="También puedes escribir un emoji" style="margin-top:8px">
+<small class="muted">Selecciona un icono de la colección o escribe uno propio.</small>
+</div>
+<div class="form-group"><label for="aDate">Fecha de inicio *</label><input type="date" id="aDate" required value="${a.date||''}"></div>
+<div class="form-group"><label for="aEndDate">Fecha de término</label><input type="date" id="aEndDate" value="${a.endDate||''}"></div>
+<div class="form-group"><label for="aStart">Hora de inicio</label><input type="time" id="aStart" value="${a.start||''}"></div>
+<div class="form-group"><label for="aEnd">Hora de término</label><input type="time" id="aEnd" value="${a.end||''}"></div>
+<div class="form-group"><label for="aPlace">Lugar / ubicación</label><input id="aPlace" value="${esc(a.place||'')}" placeholder="Ej. Sala multiuso"></div>
+<div class="form-group"><label for="aMode">Modalidad</label><select id="aMode"><option ${a.mode==='Presencial'?'selected':''}>Presencial</option><option ${a.mode==='Online'?'selected':''}>Online</option><option ${a.mode==='Híbrida'?'selected':''}>Híbrida</option></select></div>
+<div class="form-group"><label for="aResources">Recursos necesarios</label><input id="aResources" value="${esc(a.resources||'')}" placeholder="Materiales, equipos..."></div>
+<div class="form-group"><label for="aResponsible">Responsable</label><input id="aResponsible" value="${esc(a.responsible||'')}" placeholder="Nombre responsable"></div>
+<div class="form-group"><label for="aCapacity">Cupos disponibles</label><input type="number" id="aCapacity" min="0" value="${a.capacity??''}" placeholder="Sin límite"></div>
+<div class="form-group"><label for="aStatus">Estado</label><select id="aStatus">${['Borrador','Publicada','Finalizada','Cancelada'].map(s=>`<option ${a.status===s?'selected':''}>${s}</option>`).join('')}</select></div>
+<div class="form-group full"><label for="aLink">Enlace de inscripción (opcional)</label><input type="url" id="aLink" value="${esc(a.link||'')}" placeholder="https://..."></div>
+</form>`,`<button class="btn btn-light" onclick="closeModal()">Cancelar</button><button class="btn btn-primary" onclick="saveActivity()">Guardar actividad</button>`)
+
+document.querySelectorAll('#activityEmojiPicker [data-emoji]').forEach(button=>{
+  button.addEventListener('click',()=>{
+    const selected=button.dataset.emoji;
+    $('aEmoji').value=selected;
+    document.querySelectorAll('#activityEmojiPicker [data-emoji]').forEach(option=>{
+      const active=option.dataset.emoji===selected;
+      option.classList.toggle('selected',active);
+      option.setAttribute('aria-pressed',String(active));
+    });
+  });
+});
+}
+function saveActivity(){const form=$('activityForm');if(!form.reportValidity())return;const obj={id:editingId||uid(),title:$('aTitle').value.trim(),description:$('aDesc').value.trim(),category:$('aCategory').value,emoji:$('aEmoji').value.trim()||'📌',date:$('aDate').value,endDate:$('aEndDate').value,start:$('aStart').value,end:$('aEnd').value,place:$('aPlace').value.trim(),mode:$('aMode').value,resources:$('aResources').value.trim(),responsible:$('aResponsible').value.trim(),capacity:$('aCapacity').value===''?null:Number($('aCapacity').value),status:$('aStatus').value,link:$('aLink').value.trim()};if(obj.endDate&&obj.endDate<obj.date){toast('La fecha de término no puede ser anterior al inicio.');return}const i=data.activities.findIndex(x=>x.id===obj.id);if(i>=0)data.activities[i]=obj;else data.activities.push(obj);save();closeModal();renderAll();toast(i>=0?'Actividad actualizada':'Actividad creada correctamente')}
+function deleteActivity(id){if(!confirm('¿Eliminar esta actividad? También se eliminarán sus inscripciones.'))return;data.activities=data.activities.filter(a=>a.id!==id);data.registrations=data.registrations.filter(r=>r.activityId!==id);save();renderAll();toast('Actividad eliminada')}
+function publishActivity(id){const a=data.activities.find(x=>x.id===id);if(!a)return;a.status='Publicada';save();renderAll();toast('Actividad publicada')}
+function activityDetails(id){const a=data.activities.find(x=>x.id===id);if(!a)return;const url=a.link||`${location.href.split('#')[0]}#inscripcion-${a.id}`;openModal('Detalle de actividad',`<div class="qr-box"><div style="font-size:35px">${esc(a.emoji)}</div><h3>${esc(a.title)}</h3><p class="muted">${esc(a.description||'Sin descripción')}</p><p><b>${fmtDate(a.date)}</b> · ${esc(a.start||'Hora por definir')} · ${esc(a.place||'Lugar por definir')}</p><div style="margin:12px auto"><img alt="Código QR de inscripción" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(url)}"></div><p class="small muted">El QR utiliza un servicio externo. El enlace debe ser público para que otros dispositivos puedan acceder.</p><input id="copyLink" readonly value="${esc(url)}"></div>`,`<button class="btn btn-light" onclick="closeModal()">Cerrar</button><button class="btn btn-light" onclick="copyActivityLink()">Copiar enlace</button><button class="btn btn-primary" onclick="downloadQR('${encodeURIComponent(url)}')">Abrir QR</button>`)}
+function copyActivityLink(){const el=$('copyLink');el.select();document.execCommand('copy');toast('Enlace copiado')}
+function downloadQR(url){window.open('https://api.qrserver.com/v1/create-qr-code/?size=600x600&data='+url,'_blank')}
+function renderActivities(){const q=($('activitySearch')?.value||'').toLowerCase(),cat=$('activityFilter')?.value||'',st=$('statusFilter')?.value||'';const list=data.activities.filter(a=>(a.title+' '+a.description).toLowerCase().includes(q)&&(!cat||a.category===cat)&&(!st||a.status===st)).sort((a,b)=>a.date.localeCompare(b.date));$('activityCards').innerHTML=list.length?list.map(a=>`<article class="activity-card"><div class="card-top"><div class="emoji">${esc(a.emoji)}</div><span class="pill ${a.status==='Publicada'?'green':a.status==='Cancelada'?'red':a.status==='Finalizada'?'amber':''}">${esc(a.status)}</span></div><div class="card-body"><h3>${esc(a.title)}</h3><p>${esc(a.description||'Sin descripción disponible')}</p><div class="meta"><span>▦ ${fmtDate(a.date)} ${a.start?'· '+esc(a.start):''}</span><span>⌖ ${esc(a.place||'Lugar por definir')}</span><span>◈ ${esc(a.category)}</span><span>♧ ${data.registrations.filter(r=>r.activityId===a.id).length} inscritos ${a.capacity!==null?'· '+a.capacity+' cupos':''}</span></div></div><div class="card-actions"><button class="btn btn-light btn-sm" onclick="activityDetails('${a.id}')">QR / Detalles</button><button class="btn btn-light btn-sm" onclick="openActivity('${a.id}')">Editar</button><button class="btn btn-danger btn-sm" onclick="deleteActivity('${a.id}')">✕</button>${a.status==='Borrador'?`<button class="btn btn-primary btn-sm" onclick="publishActivity('${a.id}')">Publicar</button>`:''}</div></article>`).join(''):'<div class="panel empty" style="grid-column:1/-1">◷<b>No hay actividades</b>Prueba creando una nueva actividad o modifica los filtros.</div>'}
+function openObjective(id=null){editingId=id;modalType='objective';const o=id?data.objectives.find(x=>x.id===id):{};openModal(id?'Editar objetivo':'Nuevo objetivo',`<form id="objectiveForm" class="form-grid"><div class="form-group full"><label>Nombre del objetivo *</label><input id="oTitle" required maxlength="100" value="${esc(o.title||'')}" placeholder="Ej. Ejecutar ciclo de talleres"></div><div class="form-group full"><label>Descripción</label><textarea id="oDesc">${esc(o.description||'')}</textarea></div><div class="form-group"><label>Responsable</label><input id="oOwner" value="${esc(o.owner||'')}"></div><div class="form-group"><label>Fecha de inicio</label><input type="date" id="oStart" value="${o.start||today()}"></div><div class="form-group"><label>Fecha límite</label><input type="date" id="oDue" value="${o.due||''}"></div><div class="form-group"><label>Estado</label><select id="oStatus">${['Pendiente','En desarrollo','En revisión','Cumplido','Atrasado'].map(s=>`<option ${o.status===s?'selected':''}>${s}</option>`).join('')}</select></div><div class="form-group full"><label>Porcentaje de avance: <b id="progressValue">${o.progress??0}%</b></label><input type="range" id="oProgress" min="0" max="100" step="5" value="${o.progress??0}" oninput="$('progressValue').textContent=this.value+'%'"></div></form>`,`<button class="btn btn-light" onclick="closeModal()">Cancelar</button><button class="btn btn-primary" onclick="saveObjective()">Guardar objetivo</button>`)}
+function saveObjective(){const f=$('objectiveForm');if(!f.reportValidity())return;const progress=Number($('oProgress').value);let status=$('oStatus').value;if(progress===100)status='Cumplido';const o={id:editingId||uid(),title:$('oTitle').value.trim(),description:$('oDesc').value.trim(),owner:$('oOwner').value.trim(),start:$('oStart').value,due:$('oDue').value,status,progress};const i=data.objectives.findIndex(x=>x.id===o.id);if(i>=0)data.objectives[i]=o;else data.objectives.push(o);save();closeModal();renderAll();toast(i>=0?'Objetivo actualizado':'Objetivo registrado')}
+function deleteObjective(id){if(!confirm('¿Eliminar este objetivo?'))return;data.objectives=data.objectives.filter(o=>o.id!==id);save();renderAll();toast('Objetivo eliminado')}
+function renderObjectives(){const q=($('goalSearch')?.value||'').toLowerCase(),st=$('goalFilter')?.value||'';const list=data.objectives.filter(o=>(o.title+' '+o.description).toLowerCase().includes(q)&&(!st||o.status===st));$('goalTotal').textContent=data.objectives.length;$('goalActive').textContent=data.objectives.filter(o=>o.status==='En desarrollo').length;$('goalDone').textContent=data.objectives.filter(o=>o.status==='Cumplido').length;$('objectiveCards').innerHTML=list.length?list.map(o=>`<article class="objective-card"><div style="display:flex;justify-content:space-between;gap:10px"><div><h3>${esc(o.title)}</h3><p>${esc(o.description||'Sin descripción')}</p></div><span class="pill ${o.status==='Cumplido'?'green':o.status==='Atrasado'?'red':o.status==='En revisión'?'amber':''}">${esc(o.status)}</span></div><div class="objective-meta"><span>Responsable: ${esc(o.owner||'Sin asignar')}</span><span>Meta: ${fmtDate(o.due)}</span></div><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,o.progress||0))}%"></div></div><div class="objective-meta"><b>${o.progress||0}% completado</b><span><button class="btn btn-light btn-sm" onclick="openObjective('${o.id}')">Editar</button> <button class="btn btn-danger btn-sm" onclick="deleteObjective('${o.id}')">Eliminar</button></span></div></article>`).join(''):'<div class="panel empty" style="grid-column:1/-1">◎<b>No hay objetivos registrados</b>Crea un objetivo para comenzar a monitorear avances.</div>'}
+function renderDashboard(){const now=today(),acts=[...data.activities].filter(a=>a.date>=now&&a.status==='Publicada').sort((a,b)=>a.date.localeCompare(b.date));$('statActivities').textContent=data.activities.length;$('statUpcoming').textContent=acts.length;$('statRegistrations').textContent=data.registrations.length;$('statGoals').textContent=data.objectives.filter(o=>o.status==='Cumplido').length+'/'+data.objectives.length;$('dashboardActivities').innerHTML=acts.length?acts.slice(0,5).map(a=>`<div class="activity-row"><div class="datebox"><b>${new Date(a.date+'T12:00:00').getDate()}</b><span>${new Date(a.date+'T12:00:00').toLocaleDateString('es-CL',{month:'short'})}</span></div><div class="row-info"><strong>${esc(a.title)}</strong><small>${esc(a.category)} · ${esc(a.start||'Hora por definir')} · ${esc(a.place||'Sin lugar')}</small></div><span class="pill green">Publicada</span></div>`).join(''):'<div class="empty">No hay próximas actividades publicadas.</div>';$('dashboardGoals').innerHTML=data.objectives.length?data.objectives.slice(0,5).map(o=>`<div class="progress-item"><div class="progress-label"><b>${esc(o.title)}</b><span>${o.progress||0}%</span></div><div class="track"><div class="fill" style="width:${o.progress||0}%"></div></div></div>`).join(''):'<div class="empty">Aún no hay objetivos registrados.</div>'}
+
+function controlMetrics(list=data.controlActivities){
+  const total=list.length,completed=list.filter(a=>a.state==='Completada').length;
+  const pending=list.filter(a=>a.state!=='Completada').length;
+  const actual=list.reduce((sum,a)=>sum+Number(a.real||0),0);
+  const estimated=list.reduce((sum,a)=>sum+Number(a.estimated||0),0);
+  const progress=estimated>0?list.reduce((sum,a)=>sum+Number(a.estimated||0)*CONTROL_WEIGHT[a.state],0)/estimated*100:(total?list.reduce((sum,a)=>sum+CONTROL_WEIGHT[a.state],0)/total*100:0);
+  return {total,completed,pending,actual,progress,rate:total?completed/total*100:0};
+}
+function controlGrouped(){return {labels:CONTROL_CATEGORIES,estimated:CONTROL_CATEGORIES.map(c=>data.controlActivities.filter(a=>a.category===c).reduce((v,a)=>v+Number(a.estimated||0),0)),real:CONTROL_CATEGORIES.map(c=>data.controlActivities.filter(a=>a.category===c).reduce((v,a)=>v+Number(a.real||0),0))}}
+function renderControlKPIs(){
+  const m=controlMetrics();
+  const ids={ctlHours:`${m.actual.toLocaleString('es-CL',{maximumFractionDigits:1})} h`,ctlProgress:`${m.progress.toFixed(1)}%`,ctlPending:String(m.pending),ctlRate:`${m.rate.toFixed(1)}%`,dashControlHours:`${m.actual.toLocaleString('es-CL',{maximumFractionDigits:1})} h`,dashControlProgress:`${m.progress.toFixed(1)}%`,dashControlPending:String(m.pending),dashControlRate:`${m.rate.toFixed(1)}%`};
+  Object.entries(ids).forEach(([id,value])=>{const el=$(id);if(el)el.textContent=value});
+  if($('ctlProgressBar'))$('ctlProgressBar').style.width=`${Math.max(0,Math.min(100,m.progress))}%`;
+  if($('ctlRateSub'))$('ctlRateSub').textContent=`${m.completed} de ${m.total} completadas`;
+  if($('dashControlRateSub'))$('dashControlRateSub').textContent=`${m.completed} de ${m.total} completadas`;
+}
+function controlStateClass(state){return state==='Completada'?'state-done':state==='En progreso'?'state-progress':'state-pending'}
+function controlPriorityClass(priority){return priority==='Alta'?'priority-high':priority==='Baja'?'priority-low':'priority-medium'}
+function renderControlTable(){
+  const q=($('controlSearch')?.value||'').trim().toLowerCase(),cat=$('controlCategoryFilter')?.value||'',state=$('controlStateFilter')?.value||'';
+  const priorityOrder={Alta:0,Media:1,Baja:2};const list=[...data.controlActivities].filter(a=>(!q||a.name.toLowerCase().includes(q))&&(!cat||a.category===cat)&&(!state||a.state===state)).sort((a,b)=>a.date.localeCompare(b.date)||priorityOrder[a.priority]-priorityOrder[b.priority]);
+  $('controlTableCount').textContent=`Mostrando ${list.length} de ${data.controlActivities.length} actividades`;
+  $('controlTableBody').innerHTML=list.length?list.map(a=>{const overdue=a.state!=='Completada'&&a.date<today();return `<tr>
+    <td><b>${esc(a.name)}</b><div class="small ${overdue?'':'muted'}" style="color:${overdue?'#bd4141':''};margin-top:3px">Límite: ${fmtDate(a.date)}${overdue?' · Vencida':''}</div></td>
+    <td>${esc(a.category)}</td><td><b>${Number(a.real).toLocaleString('es-CL',{maximumFractionDigits:1})}</b><span class="muted"> / ${Number(a.estimated).toLocaleString('es-CL',{maximumFractionDigits:1})} h</span></td>
+    <td><span class="control-priority ${controlPriorityClass(a.priority)}">${esc(a.priority)}</span></td>
+    <td><button class="control-state ${controlStateClass(a.state)}" data-control-action="toggle" data-id="${esc(a.id)}" title="Cambiar estado">${esc(a.state)}</button></td>
+    <td><div class="control-actions"><button class="control-action" data-control-action="edit" data-id="${esc(a.id)}">Editar</button><button class="control-action danger" data-control-action="delete" data-id="${esc(a.id)}">Eliminar</button></div></td>
+  </tr>`}).join(''):'<tr><td colspan="6"><div class="empty">No hay actividades que coincidan con los filtros.</div></td></tr>';
+}
+function renderControlPreview(){const list=[...data.controlActivities].sort((a,b)=>a.date.localeCompare(b.date)).slice(0,5);$('controlDashboardPreview').innerHTML=list.length?list.map(a=>`<div class="control-preview-item"><span class="control-preview-dot" style="background:${a.state==='Completada'?'#15966a':a.state==='En progreso'?'#d97706':'#2588ce'}"></span><div class="control-preview-info"><b>${esc(a.name)}</b><small>${esc(a.category)} · ${fmtDate(a.date)}</small></div><span class="control-preview-state">${esc(a.state)}</span></div>`).join(''):'<div class="empty">Aún no hay tareas registradas.</div>'}
+function drawCategoryHoursCanvas(canvasId){
+  const canvas=$(canvasId);
+  if(!canvas)return;
+  const parent=canvas.parentElement;
+  const rect=parent.getBoundingClientRect();
+  const width=Math.max(rect.width||0,320);
+  const height=Math.max(rect.height||0,canvasId==='controlChart'?280:215);
+  const dpr=window.devicePixelRatio||1;
+  canvas.width=Math.round(width*dpr);
+  canvas.height=Math.round(height*dpr);
+  const ctx=canvas.getContext('2d');
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,width,height);
+
+  const g=controlGrouped();
+  const maxVal=Math.max(5,...g.estimated,...g.real);
+  const step=Math.ceil(maxVal/4)||1;
+  const yMax=step*4;
+
+  const padTop=38,padRight=16,padBottom=44,padLeft=42;
+  const plotW=width-padLeft-padRight;
+  const plotH=height-padTop-padBottom;
+
+  ctx.font='600 11px Inter, system-ui, sans-serif';
+  ctx.textBaseline='middle';
+
+  // Leyenda superior
+  const legY=14;
+  ctx.fillStyle='rgba(183,217,236,.95)';
+  ctx.beginPath();ctx.roundRect(padLeft,legY-5,10,10,3);ctx.fill();
+  ctx.fillStyle='#52657a';
+  ctx.fillText('Horas estimadas',padLeft+15,legY);
+
+  ctx.fillStyle='rgba(37,136,206,.9)';
+  ctx.beginPath();ctx.roundRect(padLeft+125,legY-5,10,10,3);ctx.fill();
+  ctx.fillStyle='#52657a';
+  ctx.fillText('Horas reales',padLeft+140,legY);
+
+  // Líneas de grilla y eje Y
+  for(let i=0;i<=4;i++){
+    const val=step*i;
+    const y=padTop+plotH-(val/yMax)*plotH;
+    ctx.strokeStyle='rgba(100,116,139,.14)';
+    ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(padLeft,y);ctx.lineTo(width-padRight,y);ctx.stroke();
+    ctx.fillStyle='#64748b';
+    ctx.font='500 10px Inter, system-ui, sans-serif';
+    ctx.textAlign='right';
+    ctx.fillText(val+' h',padLeft-7,y);
+  }
+
+  // Barras por categoría
+  const groupW=plotW/g.labels.length;
+  const barW=Math.min(24,Math.max(10,groupW*0.28));
+  const gap=Math.min(6,groupW*0.06);
+
+  g.labels.forEach((label,idx)=>{
+    const centerX=padLeft+groupW*idx+groupW/2;
+    const est=g.estimated[idx]||0;
+    const real=g.real[idx]||0;
+
+    const estH=Math.max(0,(est/yMax)*plotH);
+    const realH=Math.max(0,(real/yMax)*plotH);
+
+    const xEst=centerX-barW-gap/2;
+    const yEst=padTop+plotH-estH;
+    const xReal=centerX+gap/2;
+    const yReal=padTop+plotH-realH;
+
+    // Barra estimada
+    ctx.fillStyle='rgba(183,217,236,.95)';
+    if(estH>0){
+      ctx.beginPath();ctx.roundRect(xEst,yEst,barW,estH,[5,5,0,0]);ctx.fill();
+      ctx.fillStyle='#475569';
+      ctx.font='700 10px Inter, system-ui, sans-serif';
+      ctx.textAlign='center';
+      ctx.fillText(est.toLocaleString('es-CL',{maximumFractionDigits:1}),xEst+barW/2,yEst-8);
+    }
+
+    // Barra real
+    ctx.fillStyle='rgba(37,136,206,.9)';
+    if(realH>0){
+      ctx.beginPath();ctx.roundRect(xReal,yReal,barW,realH,[5,5,0,0]);ctx.fill();
+      ctx.fillStyle='#1769aa';
+      ctx.font='700 10px Inter, system-ui, sans-serif';
+      ctx.textAlign='center';
+      ctx.fillText(real.toLocaleString('es-CL',{maximumFractionDigits:1}),xReal+barW/2,yReal-8);
+    }
+
+    // Etiqueta categoría eje X
+    ctx.fillStyle='#64748b';
+    ctx.font='600 10px Inter, system-ui, sans-serif';
+    ctx.textAlign='center';
+    const shortLabel=label.length>15&&width<520?label.slice(0,13)+'…':label;
+    ctx.fillText(shortLabel,centerX,padTop+plotH+18);
+  });
+}
+
+function initControlCharts(){
+  updateControlCharts();
+  window.addEventListener('resize',updateControlCharts);
+}
+function updateControlCharts(){
+  drawCategoryHoursCanvas('controlChart');
+  drawCategoryHoursCanvas('controlDashboardChart');
+}
+function renderControlDashboard(){renderControlKPIs();renderControlPreview();updateControlCharts()}
+function resetControlForm(){const f=$('controlActivityForm');if(f)f.reset();controlEditingId=null;$('ctlDate').value=today();$('ctlPriority').value='Media';$('ctlState').value='Pendiente';$('control-form-title').textContent='Nueva actividad';$('controlSubmit').textContent='＋ Registrar actividad';$('controlCancelEdit').style.display='none'}
+function saveControlActivity(e){e.preventDefault();const form=$('controlActivityForm');if(!form.reportValidity())return;const name=$('ctlName').value.trim(),estimated=Number($('ctlEstimated').value),real=Number($('ctlReal').value),date=$('ctlDate').value,category=$('ctlCategory').value,priority=$('ctlPriority').value,state=$('ctlState').value;
+  if(name.length<3||!CONTROL_CATEGORIES.includes(category)||!CONTROL_PRIORITIES.includes(priority)||!CONTROL_STATES.includes(state)||!Number.isFinite(estimated)||estimated<=0||estimated>10000||!Number.isFinite(real)||real<0||real>10000||!/^\d{4}-\d{2}-\d{2}$/.test(date)){toast('Revisa los datos del formulario.');return}
+  const item={id:controlEditingId||uid(),name,category,estimated,real,date,priority,state};const idx=data.controlActivities.findIndex(a=>a.id===item.id);if(idx>=0)data.controlActivities[idx]=item;else data.controlActivities.push(item);save();resetControlForm();renderAll();toast(idx>=0?'Actividad de control actualizada':'Actividad de control registrada');
+}
+function editControlActivity(id){const a=data.controlActivities.find(x=>x.id===id);if(!a)return;controlEditingId=id;$('ctlName').value=a.name;$('ctlCategory').value=a.category;$('ctlEstimated').value=a.estimated;$('ctlReal').value=a.real;$('ctlDate').value=a.date;$('ctlPriority').value=a.priority;$('ctlState').value=a.state;$('control-form-title').textContent='Editar actividad';$('controlSubmit').textContent='Guardar cambios';$('controlCancelEdit').style.display='inline-flex';$('ctlName').focus();$('controlActivityForm').scrollIntoView({behavior:'smooth',block:'center'})}
+function onControlTableClick(e){const btn=e.target.closest('[data-control-action]');if(!btn)return;const {controlAction,id}=btn.dataset;const a=data.controlActivities.find(x=>x.id===id);if(!a)return;if(controlAction==='edit'){editControlActivity(id);return}if(controlAction==='toggle'){const idx=CONTROL_STATES.indexOf(a.state);a.state=CONTROL_STATES[(idx+1)%CONTROL_STATES.length];save();renderAll();toast(`Estado actualizado: ${a.state}`);return}if(controlAction==='delete'){if(!confirm(`¿Eliminar "${a.name}"? Esta acción no se puede deshacer.`))return;data.controlActivities=data.controlActivities.filter(x=>x.id!==id);if(controlEditingId===id)resetControlForm();save();renderAll();toast('Actividad eliminada')}}
+function csvEscape(value){let v=String(value??'');if(/^[\s]*[=+\-@]/.test(v))v="'"+v;return '"'+v.replace(/"/g,'""')+'"'}
+function downloadCSV(rows,filename){const csv=rows.map(row=>row.map(csvEscape).join(';')).join('\r\n');downloadBlob(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}),filename)}
+function exportControlCSV(){const headers=['ID','Nombre de actividad','Categoría','Horas estimadas','Horas reales','Fecha','Prioridad','Estado'];const rows=data.controlActivities.map(a=>[a.id,a.name,a.category,a.estimated,a.real,a.date,a.priority,a.state]);downloadCSV([headers,...rows],'control_de_actividades.csv');toast('CSV de control de actividades descargado')}
+function exportControlJSON(){const backup={version:1,exportedAt:new Date().toISOString(),controlActivities:data.controlActivities};downloadBlob(new Blob([JSON.stringify(backup,null,2)],{type:'application/json'}),'respaldo_control_actividades.json');toast('Respaldo JSON de actividades descargado')}
+function importControlJSON(e){const file=e.target.files?.[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const parsed=JSON.parse(reader.result);const records=Array.isArray(parsed)?parsed:parsed?.controlActivities;if(!Array.isArray(records))throw Error('Formato inválido');const clean=records.map(sanitizarControlActivity).filter(Boolean);if(records.length&&clean.length===0)throw Error('Sin registros válidos');if(!confirm(`Se reemplazarán las ${data.controlActivities.length} actividades actuales por ${clean.length} registros válidos. ¿Continuar?`))return;data.controlActivities=clean;if(controlEditingId)resetControlForm();save();renderAll();toast(`Importación completada: ${clean.length} actividades`)}catch(err){toast('El JSON no contiene un respaldo válido de actividades.')}finally{e.target.value=''}};reader.readAsText(file)}
+function resetControlDemo(){if(!confirm('Se reemplazará el listado actual de control por los datos demostrativos. ¿Continuar?'))return;data.controlActivities=createControlDemo();resetControlForm();save();renderAll();toast('Datos demostrativos restaurados')}
+function exportPortalCSV(){const headers=['Tipo de registro','ID','Nombre / título','Descripción','Categoría','Fecha','Fecha término','Hora inicio','Hora término','Lugar','Modalidad','Recursos','Responsable','Cupos','Estado','Prioridad','Horas estimadas','Horas reales','Avance (%)','Nombre participante','Correo participante','Fecha inscripción'];const rows=[];
+  data.activities.forEach(a=>rows.push(['Evento',a.id,a.title,a.description,a.category,a.date,a.endDate,a.start,a.end,a.place,a.mode,a.resources,a.responsible,a.capacity,a.status,'','','','','','','']));
+  data.objectives.forEach(o=>rows.push(['Objetivo',o.id,o.title,o.description,'',o.start,o.due,'','','','','',o.owner,'',o.status,'','','',o.progress,'','','']));
+  data.controlActivities.forEach(a=>rows.push(['Control de actividad',a.id,a.name,'',a.category,a.date,'','','','','','','','',a.state,a.priority,a.estimated,a.real,'','','','']));
+  data.registrations.forEach(r=>{const a=data.activities.find(x=>x.id===r.activityId);rows.push(['Inscripción',r.id,a?.title||'Actividad eliminada','','',r.created,'','','','','','','','','','','','','',r.name,r.email,r.created])});
+  downloadCSV([headers,...rows],'portal_digital_datos_completos.csv');toast('CSV completo del portal descargado. Protege los datos personales incluidos.')}
+
+function renderCalendar(){const y=calDate.getFullYear(),m=calDate.getMonth();$('monthTitle').textContent=calDate.toLocaleDateString('es-CL',{month:'long',year:'numeric'});const first=new Date(y,m,1),start=(first.getDay()+6)%7,days=new Date(y,m+1,0).getDate(),prev=new Date(y,m,0).getDate();let cells='';['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'].forEach(d=>cells+=`<div class="cal-dayname">${d}</div>`);for(let i=0;i<42;i++){let day,dt,muted=false;if(i<start){day=prev-start+i+1;dt=new Date(y,m-1,day);muted=true}else if(i>=start+days){day=i-start-days+1;dt=new Date(y,m+1,day);muted=true}else{day=i-start+1;dt=new Date(y,m,day)}const iso=`${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')}`;const ev=data.activities.filter(a=>a.date===iso);cells+=`<div class="cal-cell ${muted?'muted-day':''}"><div class="cal-num">${day}</div>${ev.slice(0,3).map(a=>`<div class="cal-event" title="${esc(a.title)}">${esc(a.emoji)} ${esc(a.title)}</div>`).join('')}${ev.length>3?`<small>+${ev.length-3} más</small>`:''}</div>`}$('calendarGrid').innerHTML=cells}
+function changeMonth(n){calDate.setMonth(calDate.getMonth()+n);renderCalendar()}
+function renderRegistrations(){const q=($('regSearch')?.value||'').toLowerCase();const list=data.registrations.filter(r=>(r.name+' '+r.email+' '+(data.activities.find(a=>a.id===r.activityId)?.title||'')).toLowerCase().includes(q));$('regTotal').textContent=data.registrations.length;$('regEvents').textContent=new Set(data.registrations.map(r=>r.activityId)).size;$('registrationRows').innerHTML=list.length?list.map(r=>`<tr><td><b>${esc(r.name)}</b></td><td>${esc(r.email)}</td><td>${esc(data.activities.find(a=>a.id===r.activityId)?.title||'Actividad eliminada')}</td><td>${fmtDate(r.created)}</td><td><button class="btn btn-danger btn-sm" onclick="deleteRegistration('${r.id}')">Eliminar</button></td></tr>`).join(''):'<tr><td colspan="5" class="empty">No hay inscripciones registradas.</td></tr>'}
+function deleteRegistration(id){if(!confirm('¿Eliminar esta inscripción?'))return;data.registrations=data.registrations.filter(r=>r.id!==id);save();renderAll()}
+function renderSettings(){$('orgName').value=data.settings.org||'';$('adminName').value=data.settings.admin||'';$('categoryList').innerHTML=data.categories.map((c,i)=>`<div style="display:flex;justify-content:space-between;align-items:center;background:#f7fafc;padding:8px 10px;border-radius:8px"><span>${esc(c)}</span><button class="btn btn-danger btn-sm" onclick="removeCategory(${i})">Eliminar</button></div>`).join('');$('activityFilter').innerHTML='<option value="">Todas las categorías</option>'+data.categories.map(c=>`<option>${esc(c)}</option>`).join('')}
+function saveSettings(){data.settings={org:$('orgName').value.trim()||'Mi organización',admin:$('adminName').value.trim()||'Administrador'};save();toast('Configuración guardada')}
+function addCategory(){const v=$('newCategory').value.trim();if(!v)return;if(data.categories.some(c=>c.toLowerCase()===v.toLowerCase())){toast('La clasificación ya existe');return}data.categories.push(v);$('newCategory').value='';save();renderSettings();toast('Clasificación agregada')}
+function removeCategory(i){if(!confirm('¿Eliminar esta clasificación?'))return;data.categories.splice(i,1);save();renderSettings()}
+function renderAll(){renderDashboard();renderActivities();renderObjectives();renderCalendar();renderRegistrations();renderSettings();renderControlTable();renderControlDashboard()}
+function exportJSON(){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});downloadBlob(blob,'portal-digital-respaldo.json')}
+function exportCSV(){const rows=[['Nombre','Correo','Actividad','Fecha inscripción'],...data.registrations.map(r=>[r.name,r.email,data.activities.find(a=>a.id===r.activityId)?.title||'',r.created])];const csv=rows.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');downloadBlob(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}),'inscripciones.csv')}
+function downloadBlob(blob,name){const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function importJSON(e){const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const d=JSON.parse(reader.result);if(!d||!Array.isArray(d.activities)||!Array.isArray(d.objectives)||!Array.isArray(d.registrations)||!Array.isArray(d.categories)||(d.controlActivities!==undefined&&!Array.isArray(d.controlActivities)))throw Error();if(!confirm('La importación reemplazará los datos actuales. ¿Continuar?'))return;data={...data,...d,controlActivities:Array.isArray(d.controlActivities)?d.controlActivities.map(sanitizarControlActivity).filter(Boolean):[]};save();renderAll();toast('Respaldo importado correctamente')}catch(err){toast('El archivo no tiene un respaldo válido')}e.target.value=''};reader.readAsText(file)}
+function resetData(){if(!confirm('Esto eliminará todos los datos guardados en este navegador. ¿Continuar?'))return;data={activities:[],objectives:[],registrations:[],controlActivities:[],categories:[...defaultCategories],settings:{org:'Mi organización',admin:'Administrador'}};save();renderAll();toast('Datos restablecidos')}
+function loadDemo(){if(data.activities.length||data.objectives.length){if(!confirm('Se agregarán ejemplos a los datos existentes. ¿Continuar?'))return}const d=today();const plus=n=>{const x=new Date(d+'T12:00:00');x.setDate(x.getDate()+n);return x.toISOString().slice(0,10)};data.activities.push({id:uid(),title:'Taller de innovación digital',description:'Espacio colaborativo para explorar herramientas digitales y nuevas ideas.',category:'Taller Deportivo',emoji:'💡',date:plus(3),endDate:'',start:'10:00',end:'12:00',place:'Sala de innovación',mode:'Presencial',resources:'Proyector y computadores',responsible:'Equipo de coordinación',capacity:30,status:'Publicada',link:''},{id:uid(),title:'Conversatorio: comunidad y participación',description:'Encuentro para compartir experiencias y propuestas de mejora.',category:'Conversatorio',emoji:'💬',date:plus(8),endDate:'',start:'15:00',end:'16:30',place:'Auditorio',mode:'Híbrida',resources:'Micrófono',responsible:'Coordinación',capacity:50,status:'Publicada',link:''});data.objectives.push({id:uid(),title:'Realizar 4 actividades comunitarias',description:'Organizar instancias de encuentro y participación.',owner:'Coordinación',start:d,due:plus(30),status:'En desarrollo',progress:50},{id:uid(),title:'Mejorar la comunicación interna',description:'Centralizar información y difundir actividades.',owner:'Equipo de comunicaciones',start:d,due:plus(20),status:'Pendiente',progress:15});save();renderAll();toast('Ejemplos agregados')}
+$('controlActivityForm').addEventListener('submit',saveControlActivity);
+$('controlCancelEdit').addEventListener('click',resetControlForm);
+$('controlTableBody').addEventListener('click',onControlTableClick);
+$('controlSearch').addEventListener('input',renderControlTable);
+$('controlCategoryFilter').addEventListener('change',renderControlTable);
+$('controlStateFilter').addEventListener('change',renderControlTable);
+$('ctlDate').value=today();
+initControlCharts();
+load();renderAll();resetControlForm();
+// Inscripción pública de demostración mediante hash. Requiere que el sitio esté publicado en una URL accesible.
+if(location.hash.startsWith('#inscripcion-')){const aid=location.hash.slice(13);const a=data.activities.find(x=>x.id===aid);if(a){openModal('Inscripción · '+a.title,`<form id="publicReg" class="form-grid"><div class="form-group full"><p>${esc(a.description||'')}</p></div><div class="form-group full"><label>Nombre completo *</label><input id="rName" required maxlength="100"></div><div class="form-group full"><label>Correo electrónico *</label><input id="rEmail" type="email" required maxlength="150"></div></form>`,`<button class="btn btn-primary" onclick="submitRegistration('${a.id}')">Confirmar inscripción</button>`)}}
+function submitRegistration(aid){const f=$('publicReg');if(!f.reportValidity())return;const a=data.activities.find(x=>x.id===aid);if(a.capacity!==null&&data.registrations.filter(r=>r.activityId===aid).length>=a.capacity){toast('Lo sentimos, no quedan cupos');return}const email=$('rEmail').value.trim().toLowerCase();if(data.registrations.some(r=>r.activityId===aid&&r.email.toLowerCase()===email)){toast('Este correo ya está inscrito');return}data.registrations.push({id:uid(),activityId:aid,name:$('rName').value.trim(),email,created:today()});save();closeModal();toast('¡Inscripción registrada!')}
+</script>
+</body>
+</html>
